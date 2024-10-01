@@ -1,13 +1,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.org1</groupId>
-  <artifactId>HibernateBasicsPracicles</artifactId>
+  <groupId>org2</groupId>
+  <artifactId>hibernateDemoProject</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <dependencies>
-   <groupId>org.sonatype.aether</groupId>
-   <artifactId>aether-api</artifactId>
-   <version>1.7</version>
-     <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+   <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
 <dependency>
     <groupId>org.hibernate</groupId>
     <artifactId>hibernate-core</artifactId>
@@ -19,7 +15,4 @@
     <artifactId>postgresql</artifactId>
     <version>42.7.4</version>
 </dependency>
-  </dependencies>
-
-
- </project>
+</project>

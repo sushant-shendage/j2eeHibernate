@@ -1,23 +1,104 @@
 package com.pack6;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 public class Car2Driver 
 {
 	static EntityManagerFactory emf= Persistence.createEntityManagerFactory("dev");
 	static EntityManager         em= emf.createEntityManager();
 	static EntityTransaction     et= em.getTransaction();
+	static Query                  q;
+	
 	public static void main(String[] args) 
 	{
+		//enter carId,carBrand,engineCc,engineId
+		//insertRecordInTwoTable(9,"brand9","99",999);
 		
+		//car_id,new_brabdName,new_EngineCc
+		//updatBrandNameAndEngineCc(3,"brand1New3","33333");
 		
- 
-	insertRecordInTwoTable(7,"brand7","77",777);
+		//delete both record by ID of car
+		//deleteRecordsByCar2Id(4);
+		
+		//fetching record by carId
+        //fetchRecordByIdOfCar(6);
+		
+		//fetching data of both table
+		//fetchAllTableRecord();
+		
+		 
 	}
 	
+	static void fetchAllTableRecord() 
+	{
+		q=em.createQuery("select c2 from Car2 c2");
+		List <Car2> carAndEngineInfo=q.getResultList();
+		for ( Car2 i: carAndEngineInfo  ) {
+			Engine e=i.getE1();
+			System.out.println("==============================");
+			System.out.println("car details ::--");
+			System.out.println("car id    : "+i.getId());
+			System.out.println("car brand : "+i.getBrand());
+			System.out.println("--------------------");
+			System.out.println("engine id : "+e.getEid());
+			System.out.println("engine cc : "+e.getCc());
+			System.out.println("==============================");	
+		}
+		
+	}
+	static void fetchRecordByIdOfCar(int car2Id) 
+	{
+		Car2 ob1=em.find(Car2.class, car2Id);
+		Engine e=ob1.getE1();
+		System.out.println("==============================");
+		System.out.println("car details ::--");
+		System.out.println("car id    : "+ob1.getId());
+		System.out.println("car brand : "+ob1.getBrand());
+		System.out.println("--------------------");
+		System.out.println("engine id : "+e.getEid());
+		System.out.println("engine cc : "+e.getCc());
+		System.out.println("==============================");	
+	}
+	static void deleteRecordsByCar2Id(int car2Id)
+	{
+		 Car2 ob1=em.find(Car2.class, car2Id);
+			
+			Engine e=ob1.getE1();
+			 
+			et.begin();
+			em.remove(ob1);
+			em.remove(e);
+			et.commit();
+			System.out.println(" record deleted in both table..!");
+		
+	}
+	static void updatBrandNameAndEngineCc(int idCar,String brandNameCar,String eCC) 
+	{
+		 Car2 ob1=em.find(Car2.class, idCar);
+			
+			ob1.setId(idCar);
+			ob1.setBrand( brandNameCar);
+			
+			Engine e=ob1.getE1();
+			e.setCc(eCC);
+			 
+			
+			ob1.setEngine(e);
+			et.begin();
+			em.merge(e);
+			em.merge(ob1);
+			et.commit();
+			System.out.println(" record updated in both table..!");
+			
+		
+	}
 	static void insertRecordInTwoTable(int setIdVal,String setBrandVal,String setCcVal,int setEidVal) 
 	{
         Car2 ob1=new Car2();
@@ -35,7 +116,7 @@ public class Car2Driver
 		em.persist(e);
 		em.persist(ob1);
 		et.commit();
-		System.out.println("program execution completed..!");
+		System.out.println(" record saved in both table..!");
 	}
 
 }

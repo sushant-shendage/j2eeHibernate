@@ -14,10 +14,10 @@ import javax.persistence.Query;
 import com.pack1.GameUser;
 
 public class BookDriver {
-	static Scanner sc = new Scanner(System.in);
+	static Scanner               sc = new Scanner(System.in);
 	static EntityManagerFactory emf = Persistence.createEntityManagerFactory("dev");
-	static EntityManager em = emf.createEntityManager();
-	static EntityTransaction et = em.getTransaction();
+	static EntityManager         em = emf.createEntityManager();
+	static EntityTransaction     et = em.getTransaction();
 
 	public static void main(String[] args) {
 		 

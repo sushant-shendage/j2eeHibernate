@@ -32,10 +32,76 @@ public class Car2Driver
 		
 		//fetching data of both table
 		//fetchAllTableRecord();
-		
-		 
+
+		int option = 0;
+
+//
+//		while (true) {
+//		 
+//
+//			boolean runLoop = true;
+//
+//			while (runLoop) {
+//				menue();
+//				System.out.println("Enter the choice :");
+//				option = sc.nextInt();
+//				switch (option) {
+//				case 1: {
+//					System.out.println("--:insert operation:--");
+//					insertBookDataById();
+//					break;
+//				}
+//
+//				case 2: {
+//					System.out.println("--:update operation(id):--");
+//					updateBookById();
+//					break;
+//				}
+//				case 3: {
+//					System.out.println("--:delete operation(id):--");
+//					deleteBookById();
+//					break;
+//				}
+//				case 4: {
+//					System.out.println("--:fetch record(single(id)):--");
+//					findBookById();
+//					break;
+//				}
+//				case 5: {
+//					System.out.println("--:fetch record(single(author name)):--");
+//					findBookByAuthorName();
+//					break;
+//				}
+//				case 6: {
+//					System.out.println("--:fetch record(all):--");
+//					fetchAllBookData();
+//					break;
+//				}
+//				case 7: {
+//					runLoop = false;
+//
+//					break;
+//				}
+//
+//				}
+//
+//			}
+//			if (!runLoop) {
+//				break;
+//			}
+//		}
+	 
 	}
 	
+	static void menue() {
+		System.out.println("[choice] :operation");
+		System.out.println("[01]     :insert record in both table");
+		System.out.println("[02]     :update brand & engine cc");
+		System.out.println("[02]     :delete record by car id");
+
+
+		 
+	}
 	static void fetchAllTableRecord() 
 	{
 		q=em.createQuery("select c2 from Car2 c2");

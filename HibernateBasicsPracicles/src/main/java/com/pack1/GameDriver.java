@@ -14,9 +14,9 @@ public class GameDriver
 		EntityTransaction     et=em.getTransaction();
 		
 		GameUser ob1=new GameUser(); 
-		 ob1.setUserId(333);
-		 ob1.setUserName("user333");
-		 ob1.setScore(1225);
+		 ob1.setUserId(5678);
+		 ob1.setUserName("user5678");
+		 ob1.setScore(1567);
 		
 		et.begin();
 		em.persist(ob1);

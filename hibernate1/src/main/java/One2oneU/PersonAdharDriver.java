@@ -24,6 +24,7 @@ public class PersonAdharDriver {
 	static void insertRecordById(int personId, String persoName, String Gender, String personCity,int adId,String fullName,long Mobile,String Address) {
 		 if(em.find(Person.class,personId)==null) {
 			 System.out.println("id is not avilable..!");
+			 
 		 }else {
 			 System.out.println("id is  already avilable..!");
 
